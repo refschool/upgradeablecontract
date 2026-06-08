@@ -23,7 +23,7 @@ const LockModule = buildModule("LockModule", (m) => {
     value: lockedAmount
   });
 
-  // on load  le contrat Lock à l'adresse du proxy
+  // on load le contrat Lock à l'adresse du proxy
   const lockProxy = m.contractAt("Lock", proxy, { id: "LockProxyInstance" });
 
   // get address of proxyAdmin (deployed by TransparentUpgradeableProxy)
@@ -35,7 +35,7 @@ const LockModule = buildModule("LockModule", (m) => {
   // on get l'adresse de proxyAdmin
   const proxyAdmin = m.contractAt("ProxyAdmin", proxyAdminAddress);
 
-  return { proxy, proxyAdmin };
+  return { proxy, proxyAdmin, lockProxy };
 });
 
 export default LockModule;
